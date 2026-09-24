@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ru" class="no-js">
+<head>
+  <meta charset="utf-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=663f6101-4994-4c4c-a0d8-2c6af5e1f7ff
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Заявка принята — Первая линия</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0e0b1e">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="assets/brand/favicon.png">
+  <link rel="preload" href="assets/fonts/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css?v=17">
+</head>
+<body>
+  <header class="header is-scrolled">
+    <div class="container header__inner">
+      <a aria-label='Первая линия — на главную' class='header__logo' href='/'><img src="assets/brand/logo-horizontal-dark.png" alt="Первая линия — агентство недвижимости" width="900" height="166"></a>
+      <div class="header__right">
+        <div class="header__phone"><a data-phone href="tel:+79917793915">+7 (991) 779-39-15</a><span>Анапа · отдел продаж</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <div class="thanks">
+        <p class="eyebrow">Заявка принята</p>
+        <h1 class="h2" data-t-title>Спасибо! Заявка уже у брокера</h1>
+        <p class="lead" data-t-lead></p>
+        <ol class="thanks__steps" data-t-steps></ol>
+        <div class="thanks__calc" data-t-calc hidden>
+          <p class="card-note__title">Ваш расчёт</p>
+          <pre data-t-calc-text></pre>
+          <p class="src">Прогноз на открытых рыночных данных на 23.09.2026, не гарантия доходности и не публичная оферта.</p>
+        </div>
+        <div class="hero__ctas" data-t-btns></div>
+        <p class="small muted">Не хотите ждать? Позвоните: <a data-phone href="tel:+79917793915">+7 (991) 779-39-15</a> <!-- [ПОДТВЕРДИТЬ] часы работы и сроки ответа --></p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__legal" style="margin-top:0;border-top:0;padding-top:0">
+        <p>© <span data-year>2026</span> «Первая линия», агентство недвижимости, Анапа.</p>
+        <p><a href='/politika'>Политика обработки персональных данных</a>. Информация на сайте не является публичной офертой.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/config.js?v=17"></script>
+  <script src="assets/js/app.js?v=17" defer></script>
+  <script>
+    (function () {
+      var p = new URLSearchParams(location.search);
+      var f = p.get("f") || "", m = p.get("m") || "";
+      var lead = {}; try { lead = JSON.parse(sessionStorage.getItem("pl_lead")) || {}; } catch (e) {}
+      var name = lead.name ? lead.name + ", " : "";
+      var where = { telegram: "в Telegram", whatsapp: "в WhatsApp", max: "в MAX", call: "по телефону" }[m] || "в выбранный мессенджер";
+      var HOURS = "ежедневно 9:00–20:00 МСК";
+      var tg = '<a class="btn btn--ghost" href="https://t.me/the_firstline" target="_blank" rel="noopener">Открыть наш Telegram</a>';
+      var calcBtn = '<a class="btn btn--gold" href="index.html#kalkulyator">Посчитать свой вариант против вклада</a>';
+      var V = {
+        portfolio: { t: "Портфель уже готовим",
+          l: name + "выпуск придёт " + where + " в течение 15 минут в рабочее время (" + HOURS + "). В нерабочее время — до 10:00 МСК следующего дня. Вместе с PDF брокер пришлёт три главных вывода текстом, чтобы не листать все страницы.",
+          s: ["Откройте портфель и отметьте 1–2 объекта.", "Хотите расчёт на свою сумму — ответьте брокеру: «сумма и срок».", "Хотите увидеть объект — запишитесь на живой видеопоказ."],
+          b: calcBtn + tg },
+        quiz: { t: "Расчёт уже у брокера",
+          l: name + "в течение 15 минут напишем " + where + " и уточним одну-две детали. Три объекта с полным расчётом пришлём в течение 24 часов. Сейчас нерабочее время? Ответим завтра до 10:00 МСК.",
+          s: ["Брокер пишет вам и присылает копию вашего расчёта.", "В течение 24 часов — 3 объекта с расчётом, стресс-тестом и минусами.", "Понравится объект — созвон на 15 минут или живой видеопоказ. Не понравится — просто скажите, звонить не будем."],
+          b: '<button class="btn btn--gold" type="button" onclick="window.plGoal && window.plGoal(\'save_calc_pdf\'); window.print()">Сохранить мой расчёт (PDF)</button>' + tg },
+        second: { t: "Получили",
+          l: name + "подтвердим получение " + where + " в течение 15 минут в рабочее время. Разбор объекта пришлём в течение 1–2 рабочих дней.",
+          s: ["Брокер подтвердит получение и попросит презентацию или ссылку, если их не было.", "Пересчитаем объект чистыми в трёх сценариях и покажем, что нарисовано.", "Если объект слабый — предложим альтернативы. Если хороший — так и скажем."],
+          b: calcBtn + tg },
+        video: { t: "Записали",
+          l: name + "брокер напишет " + where + " и предложит время. Показ идёт в прямом эфире: можно просить показать что угодно.",
+          s: ["Брокер согласует удобное время.", "Живой видеопоказ: вид из окна, двор, дорога до моря — всё, что попросите.", "После показа — документы на проверку в PDF."],
+          b: calcBtn + tg },
+        land: { t: "Приняли участок на проверку",
+          l: name + "если понадобятся документы продавца, брокер напишет, какие именно. Первичную проверку пришлём в течение 3 рабочих дней.",
+          s: ["Проверим категорию, вид разрешённого использования и правила застройки.", "Посмотрим зоны ограничений, границы и обременения.", "Выясним, есть ли сети и подъезд, и сравним цену с похожими участками."],
+          b: calcBtn + tg },
+        callback: { t: "Перезвоним",
+          l: name + "перезвоним с номера +7 (991) 779-39-15 в течение 15 минут в рабочее время.",
+          s: ["Брокер позвонит и задаст 2–3 вопроса: цель, сумма, срок.", "Пришлёт расчёт или подборку туда, где вам удобно.", "Дальше — только если вам интересно. Без давления."],
+          b: calcBtn + tg }
+      };
+      V.object = { t: "Расчёт по объекту в работе",
+          l: name + "напишем " + where + " в течение 15 минут в рабочее время и уточним объект. Полный расчёт — три сценария, стресс-тест, сравнение с вкладом и минусы — пришлём в течение 24 часов.",
+          s: ["Брокер уточнит лот, этаж и способ оплаты.", "Пришлёт расчёт в трёх сценариях и сравнение с вкладом на 3 и 5 лет.", "Понравится — живой видеопоказ или встреча на объекте."],
+          b: calcBtn + tg };
+      V.segment = { t: "Собираем портфель под вашу сумму",
+          l: name + "напишем " + where + " в течение 15 минут в рабочее время и пришлём 2–3 объекта разных форматов с общим расчётом против вклада.",
+          s: ["Уточним сумму, срок и на кого оформлять — физлицо или ИП.", "Соберём 2–3 объекта: доход, рост и ликвидность.", "Покажем общий расчёт против вклада и налоговую схему."],
+          b: calcBtn + tg };
+      V.checklist = { t: "Чек-лист и портфель уже в пути",
+          l: name + "чек-лист «10 вопросов для любой УК» придёт первым сообщением " + where + ", портфель — следом, в течение 15 минут в рабочее время (" + HOURS + ").",
+          s: V.portfolio.s, b: calcBtn + tg };
+      V.exit = V.portfolio; V.final = V.portfolio;
+      var v = V[f] || V.quiz;
+      document.querySelector("[data-t-title]").textContent = v.t;
+      document.querySelector("[data-t-lead]").textContent = v.l.charAt(0).toUpperCase() + v.l.slice(1);
+      document.querySelector("[data-t-steps]").innerHTML = v.s.map(function (x, i) { return "<li><b>0" + (i + 1) + "</b><span>" + x + "</span></li>"; }).join("");
+      document.querySelector("[data-t-btns]").innerHTML = v.b;
+      var calc = null; try { calc = JSON.parse(sessionStorage.getItem("pl_calc")); } catch (e) {}
+      if (calc && (f === "quiz" || f === "segment" || f === "object")) {
+        document.querySelector("[data-t-calc]").hidden = false;
+        document.querySelector("[data-t-calc-text]").textContent = calc.answers + "\n\n" + calc.text;
+      }
+      window.addEventListener("load", function () { if (window.plGoal) window.plGoal("thankyou_view", { form: f }); });
+    })();
+  </script>
+</body>
+</html>
+<script async src="/.netlify/scripts/hud?variant=public" data-nf-variant="public" data-netlify-site-id="663f6101-4994-4c4c-a0d8-2c6af5e1f7ff" data-app-host="app.netlify.com"></script>
